@@ -22,7 +22,6 @@
 %w[IIS-WebServerRole NetFx4 NetFx4Extended-ASPNET45 IIS-ISAPIFilter IIS-ISAPIExtensions IIS-NetFxExtensibility45 IIS-ASPNET45].each do |feature|
   windows_feature feature do
     action :install
-    #notifies :request, 'windows_reboot[15]'
   end
 end
 
