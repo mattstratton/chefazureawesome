@@ -44,7 +44,9 @@ end
 iis_pool 'awesome_demo' do
     runtime_version "4.0"
     pipeline_mode :Integrated
-    action :add
+    pool_username node[:awesome_demo][:apppool_user]
+    pool_password node[:awesome_demo][:apppool_password] 
+    action [:add,:config]
 end
 
 # create and start a new site that maps to
