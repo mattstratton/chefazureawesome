@@ -22,4 +22,6 @@ default[:awesome_demo][:apppool_user] = "awesome-demo-pool"
 default[:awesome_demo][:apppool_password] = "PoolAdmin123"
 default[:awesome_demo][:web_root] = "c:/webroot/awesome-demo"
 default[:awesome_demo][:log_root] = "c:/logs"
+default[:awesome_demo][:app_pool] = "matt_demo"
+default[:awesome_demo][:website] = "matt_demo"
 default[:iis][:accept_eula] = true
