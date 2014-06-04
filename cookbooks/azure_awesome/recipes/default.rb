@@ -41,7 +41,7 @@ iis_site 'Default Web Site' do
 end
 
 #creates a new app pool
-iis_pool awesome_demo do
+iis_pool 'awesome_demo' do
     runtime_version "4.0"
     pipeline_mode :Integrated
     action :add
@@ -49,10 +49,10 @@ end
 
 # create and start a new site that maps to
 # the physical location specified in the webroot
-iis_site awesome_demo do
+iis_site 'awesome_demo' do
   protocol :http
   port 80
   path node[:awesome_demo][:web_root]
-  application_pool awesome_demo
+  application_pool 'awesome_demo'
   action [:add,:start]
 end
