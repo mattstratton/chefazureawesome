@@ -17,13 +17,9 @@
 # limitations under the License.
 #
 
-default[:xm_demo][:administrator] = "xmadmin"
-#Hardcoding for now TODO move to databag
-default[:xm_demo][:admin_password] = "Admin123"
-#default[:xm_demo][:admin_password] = node[:windows_users][:admin_password]
-default[:xm_demo][:apppool_user] = "xm-demo-pool"
-#default[:xm_demo][:apppool_password] = node[:windows_users][:apppool_password]
-default[:xm_demo][:apppool_password] = "PoolAdmin123"
-default[:xm_demo][:web_root] = "c:/webroot/xm-demo"
-default[:xm_demo][:log_root] = "c:/logs"
+
+default[:awesome_demo][:apppool_user] = "awesome-demo-pool"
+default[:awesome_demo][:apppool_password] = "PoolAdmin123"
+default[:awesome_demo][:web_root] = "c:/webroot/awesome-demo"
+default[:awesome_demo][:log_root] = "c:/logs"
 default[:iis][:accept_eula] = true

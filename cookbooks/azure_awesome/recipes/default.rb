@@ -19,20 +19,20 @@
 
 # install the IIS-WebServerRole
 
-%w[IIS-WebServerRole NetFx3 IIS-ISAPIFilter IIS-ISAPIExtensions IIS-NetFxExtensibility IIS-ASPNET].each do |feature|
+%w[IIS-WebServerRole NetFx4 NetFx4Extended-ASPNET45 IIS-ISAPIFilter IIS-ISAPIExtensions IIS-NetFxExtensibility45 IIS-ASPNET45].each do |feature|
   windows_feature feature do
     action :install
-    notifies :request, 'windows_reboot[15]'
+    #notifies :request, 'windows_reboot[15]'
   end
 end
 
 # Create the webroot and the log root
 
-directory node[:xm_demo][:web_root] do
+directory node[:awesome_demo][:web_root] do
   recursive true
 end
 
-directory node[:xm_demo][:log_root] do
+directory node[:awesome_demo][:log_root] do
   recursive true
 end
 
@@ -42,20 +42,18 @@ iis_site 'Default Web Site' do
 end
 
 #creates a new app pool
-iis_pool 'XM-Demo' do
+iis_pool 'awesome-Demo' do
     runtime_version "4.0"
     pipeline_mode :Integrated
-    pool_username node[:xm_demo][:apppool_user]
-    pool_password node[:xm_demo][:apppool_password]
     action :add
 end
 
 # create and start a new site that maps to
 # the physical location specified in the webroot
-iis_site 'XM-Demo' do
+iis_site 'awesome-Demo' do
   protocol :http
   port 80
-  path node[:xm_demo][:web_root]
-  application_pool 'XM-Demo'
+  path node[:awesome_demo][:web_root]
+  application_pool 'awesome-Demo'
   action [:add,:start]
 end
