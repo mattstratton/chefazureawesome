@@ -19,10 +19,26 @@
 
 # install the IIS-WebServerRole
 
-%w[IIS-WebServerRole NetFx4 NetFx4Extended-ASPNET45 IIS-ISAPIFilter IIS-ISAPIExtensions IIS-NetFxExtensibility45 IIS-ASPNET45].each do |feature|
-  windows_feature feature do
-    action :install
+%w[
+  IIS-WebServerRole
+  NetFx4
+  NetFx4Extended-ASPNET45
+  IIS-ISAPIFilter
+  IIS-ISAPIExtensions
+  IIS-NetFxExtensibility45
+  IIS-ASPNET45
+  ].each do |feature|
+    windows_feature feature do
+      action :install
+      all :true
   end
+end
+
+# Create a local user
+
+user node[:awesome_demo][:apppool_user] do
+  password node[:awesome_demo][:apppool_password]
+  action :create
 end
 
 # Create the webroot and the log root
