@@ -1,16 +1,25 @@
 ---
-driver:
-  name: vagrant
+driver_plugin: vagrant
 
 provisioner:
-  name: chef_solo
+  name: chef_zero
+
+transport:
+  name: winrm
 
 platforms:
-  - name: ubuntu-12.04
-  - name: centos-6.4
+- name: windows2012r2_cloud
+  driver_config:
+    box: windows2012r2_cloud
+    box_url: https://s3.amazonaws.com/box-cutter-us-east-1-cloudtrail/windows/virtualbox4.3.12/win2012r2-datacenter-chef11.12.8.box
+    guest: :windows
+    customize:
+      memory: 2048
 
 suites:
   - name: default
     run_list:
       - recipe[azure_awesome::default]
+      - recipe[azure_awesome::forefront]
+      - recipe[azure_awesome::disable_uac]
     attributes:

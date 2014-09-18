@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: azure_awesome
-# Attributes:: default
+# Recipe:: disable_uac
 #
 # Copyright 2014, Matt Stratton
 #
@@ -17,10 +17,11 @@
 # limitations under the License.
 #
 
-default[:awesome_demo][:apppool_user] = 'awesome-demo-pool'
-default[:awesome_demo][:apppool_password] = 'PoolAdmin123'
-default[:awesome_demo][:web_root] = 'c:/webroot/awesome-demo'
-default[:awesome_demo][:log_root] = 'c:/logs'
-default[:awesome_demo][:indexfile] = 'Default.htm'
-default[:awesome_demo][:app_pool] = 'matt_demo'
-default[:awesome_demo][:website] = 'matt_demo'
+registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System" do
+  values [{
+    :name => "EnableLUA",
+    :type => :dword,
+    :data => 0
+  }]
+  action :create
+end

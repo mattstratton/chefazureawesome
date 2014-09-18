@@ -1,8 +1,7 @@
-#
 # Cookbook Name:: azure_awesome
-# Attributes:: default
+# Recipe:: forefront
 #
-# Copyright 2014, Matt Stratton
+# Copyright (C) 2014 10th Magnitude
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,12 +14,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
+# 
+# /s means silent
+# /q means silent extraction
 
-default[:awesome_demo][:apppool_user] = 'awesome-demo-pool'
-default[:awesome_demo][:apppool_password] = 'PoolAdmin123'
-default[:awesome_demo][:web_root] = 'c:/webroot/awesome-demo'
-default[:awesome_demo][:log_root] = 'c:/logs'
-default[:awesome_demo][:indexfile] = 'Default.htm'
-default[:awesome_demo][:app_pool] = 'matt_demo'
-default[:awesome_demo][:website] = 'matt_demo'
+# install FEP as custom installer and manually set the silent install flags
+windows_package "Microsoft Forefront Endpoint Protection" do
+  source "https://dl.dropboxusercontent.com/u/2105139/FEPInstall.exe"
+  options "/s /q"
+  installer_type :custom
+  action :install
+end
