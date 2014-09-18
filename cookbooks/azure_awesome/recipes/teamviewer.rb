@@ -5,7 +5,7 @@ end
 
 windows_package 'TeamViewer 9' do
   source 'c:/TeamViewer_Setup_en.exe'
-  options "/S"
+  options '/S'
   installer_type :custom
   action :install
 end
