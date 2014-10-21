@@ -1,0 +1,33 @@
+{
+  "name": "myface",
+  "description": "Installs/Configures myface",
+  "long_description": "# myface cookbook\n\n# Requirements\nChef 10.16.2 or higher\n\n# Usage\nExample cookbook written to show the Application Cookbook pattern\n\n# Attributes\nNone (yet)\n\n# Recipes\ndefault.rb\n\n# Author\n\nAuthor:: Sean OMeara (<someara@opscode.com>)\n",
+  "maintainer": "Sean OMeara",
+  "maintainer_email": "someara@opscode.com",
+  "license": "Apache 2",
+  "platforms": {
+  },
+  "dependencies": {
+    "mysql": ">= 0.0.0",
+    "database": ">= 0.0.0",
+    "apache2": ">= 0.0.0",
+    "php": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.3.0"
+}
