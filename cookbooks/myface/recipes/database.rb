@@ -8,7 +8,7 @@
 #
 
 include_recipe "mysql::server"
-include_recipe "mysql::ruby"
+#include_recipe "mysql::ruby"
 
 mysql_database 'myface' do
   connection ({
