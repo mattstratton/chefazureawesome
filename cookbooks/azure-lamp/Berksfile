@@ -1,7 +1,7 @@
 # vi: set ft=ruby :
-# source 'https://api.berkshelf.com'
+source 'https://api.berkshelf.com'
 #
-# metadata
+metadata
 #
 # cookbook 'apt', '~> 1.10.0'
 # cookbook 'yum'

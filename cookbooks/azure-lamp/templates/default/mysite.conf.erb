@@ -1,0 +1,48 @@
+# ______________________________________________________________________
+#/ WARNING: This file is maintained by chef. Any edits made directly to \
+#\ this file will be overwritten the next time the chef-client runs.    /
+# ----------------------------------------------------------------------
+#     \
+#      \
+#       .--,--.
+#       `.  ,.'
+#        |___|
+#        :o o:   O
+#       _`~^~'_  |
+#     /'   ^   `[=)
+#   .'  _______ '~|
+#   `(<=|     |= /'
+#       |     |
+#       |_____|
+# ~~~~~~ ===== ~~~~~~~~
+# Managed by Chef for <%= node['hostname'] %>
+
+<% unless node['my-app']['webserver']['apache_port'] == '80' -%>
+Listen <%= node['my-app']['webserver']['apache_port'] %>
+<% end -%>
+
+<VirtualHost *:<%= node['my-app']['webserver']['apache_port'] %>>
+  ServerName <%= node.name %>
+<% unless node['my-app']['webserver']['server_aliases'].empty? -%>
+  ServerAlias <% node['my-app']['webserver']['server_aliases'].each do |a| %><%= a %> <% end %>
+<% end -%>
+
+  DocumentRoot /opt/mysite
+
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+
+  <Directory /opt/mysite>
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+  </Directory>
+
+  LogLevel info
+  ErrorLog <%= node['apache']['log_dir'] %>/<%= node['my-app']['webserver']['server_name']%>-web-error.log
+  CustomLog <%= node['apache']['log_dir'] %>/<%= node['my-app']['webserver']['server_name']%>-web-access.log combined
+
+</VirtualHost>

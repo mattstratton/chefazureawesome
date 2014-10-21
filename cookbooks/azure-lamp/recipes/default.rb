@@ -6,3 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+# Install webserver
+include_recipe 'azure-lamp::webserver'
