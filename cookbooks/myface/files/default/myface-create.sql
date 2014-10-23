@@ -14,4 +14,6 @@ INSERT INTO users ( id, user_name, url, email, neck_beard ) VALUES ( uuid(), 'jt
 INSERT INTO users ( id, user_name, url, email, neck_beard ) VALUES ( uuid(), 'someara', 'http://blog.afistfulofservers.net/', 'someara@opscode.com', 5 );
 INSERT INTO users ( id, user_name, url, email, neck_beard ) VALUES ( uuid(), 'jwinsor', 'http://vialstudios.com', 'jamie@vialstudios.com', 4 );
 INSERT INTO users ( id, user_name, url, email, neck_beard ) VALUES ( uuid(), 'cjohnson', 'http://www.chipadeedoodah.com/', 'charles@opscode.com', 3 );
-INSERT INTO users ( id, user_name, url, email, neck_beard ) VALUES ( uuid(), 'mbower', 'http://www.webbower.com/', 'matt@webbower.com', 4 );
+INSERT INTO users ( id, user_name, url, email, neck_beard ) VALUES ( uuid(), 'jrak', 'http://www.10thmagnitude.com/', 'jrak@10thmagnitude.com', 1 );
+INSERT INTO users ( id, user_name, url, email, neck_beard ) VALUES ( uuid(), 'mstratton', 'http://www.arresteddevops.com/', 'mattstratton@getchef.com', 2 );
+

@@ -11,3 +11,5 @@ chef_server_url          "https://api.opscode.com/organizations/chefazureawesome
 cache_type               'BasicFile'
 cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path            ["#{current_dir}/../cookbooks"]
+
+knife[:azure_publish_settings_file] = "/Users/mattstratton/.azure/matt-azure.publishsettings"
